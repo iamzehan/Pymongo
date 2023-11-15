@@ -1,6 +1,13 @@
 from pymongo import MongoClient
 from datetime import datetime
-MONGODB_URI = "mongodb+srv://myAtlasDBUser:hxEWomfq3gF99ec2@myatlasclusteredu.ncukges.mongodb.net/?retryWrites=true&w=majority"
+import json
+
+# Read the configuration file
+with open('.\config.json', 'r') as config_file:
+    config_data = json.load(config_file)
+
+# Access the MongoDB URI
+MONGODB_URI = config_data['mongoURI']
 client=MongoClient(MONGODB_URI)
 
 db = client.library

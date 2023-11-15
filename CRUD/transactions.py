@@ -2,7 +2,14 @@
 # Connect to MongoDB cluster with MongoClient
 from pymongo import MongoClient
 
-MONGODB_URI = "mongodb+srv://myAtlasDBUser:hxEWomfq3gF99ec2@myatlasclusteredu.ncukges.mongodb.net/?retryWrites=true&w=majority"
+import json
+
+# Read the configuration file
+with open('.\config.json', 'r') as config_file:
+    config_data = json.load(config_file)
+
+# Access the MongoDB URI
+MONGODB_URI = config_data['mongoURI']
 client = MongoClient(MONGODB_URI)
 
 # Step 1: Define the callback that specifies the sequence of operations to perform inside the transactions.
