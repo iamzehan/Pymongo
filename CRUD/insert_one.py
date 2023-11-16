@@ -5,10 +5,10 @@ import json
 
 # Read the configuration file
 with open('.\config.json', 'r') as config_file:
-    config_data = json.load(config_file)
+    config_data = json.load(config_file) #this loads the entire data into this variable 
 
 # Access the MongoDB URI
-MONGODB_URI = config_data['mongoURI']
+MONGODB_URI = config_data['mongoURI'] # this allows the variable to act like a json instance
 client=MongoClient(MONGODB_URI)
 
 db = client.library
